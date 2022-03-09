@@ -1,0 +1,34 @@
+﻿@model TelefonDefteri.Models.KisiModel.KisiIndexViewModel
+
+@{
+    ViewBag.Title = "Kişi Güncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>İsim</th>
+        <th>Soyisim</th>
+        <th>Telefon Numarası</th>
+        <th>Kategori Adı</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var kisi in Model.Kisiler)
+    {
+    <tr>
+        <td>@kisi.KisiAdi</td>
+        <td>@kisi.Soyadi</td>
+        <td>@kisi.Telefon</td>
+        <td>@kisi.Kategoriler.KategoriAdi</td>
+        <td>
+        @Html.ActionLink("Güncelle","Guncelle",new { id=kisi.KisiId}) |
+        @Html.ActionLink("Sil","Sil", new { id = kisi.KisiId },new { onclick="return confirm('Kişiyi Silmek İstediğinize Emin Misiniz?');"})
+        </td>
+    </tr>
+
+    }
+
+</table>
+

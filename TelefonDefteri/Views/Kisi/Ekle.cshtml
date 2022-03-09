@@ -1,0 +1,53 @@
+﻿
+@model TelefonDefteri.Models.KisiModel.KisiEkleViewModel
+
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ekle</h2>
+
+<form class="form-horizontal" method="post" action="/Kisi/Ekle/">
+
+
+    <div class="form-group">
+
+
+
+        @Html.LabelFor(m => m.Kisi.KisiAdi)
+        @Html.TextBoxFor(m => m.Kisi.KisiAdi, null, new { @class = "form-control" })
+
+    </div>
+
+    <div class="form-group">
+
+
+
+
+        @Html.LabelFor(m => m.Kisi.Soyadi)
+        @Html.TextBoxFor(m => m.Kisi.Soyadi, null, new { @class = "form-control" })
+
+    </div>
+
+    <div class="form-group">
+
+
+
+        @Html.LabelFor(m => m.Kisi.Telefon)
+        @Html.TextBoxFor(m => m.Kisi.Telefon, null, new { @class = "form-control" })
+
+    </div>
+
+   
+    <div class="form-group">
+
+        @Html.LabelFor(m => m.Kisi.KategoriId)
+        @Html.DropDownListFor(m => m.Kisi.KategoriId, new SelectList(Model.Kategoriler, "KategoriId", "KategoriAdi"), new { @class = "form-control" })
+
+
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Kaydet" />
+</form>
+
